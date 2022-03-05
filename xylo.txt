@@ -1,0 +1,90 @@
+import 'package:audioplayers/audioplayers.dart';
+import 'package:flutter/material.dart';
+
+void main() {
+  runApp(MaterialApp(
+    home: Scaffold(
+      appBar: AppBar(
+        title: Text("Xylophone application"),
+      ),
+      body: Xylo(),
+    ),
+  ));
+}
+
+class Xylo extends StatefulWidget {
+  const Xylo({Key? key}) : super(key: key);
+
+
+  @override
+  _XyloState createState() => _XyloState();
+}
+
+void Playsound(int notenumber) {
+  final player = AudioCache();
+  player.play("note$notenumber.wav");
+}
+
+class _XyloState extends State<Xylo> {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        Expanded(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Colors.deepPurple),
+            onPressed: () {
+              Playsound(1);
+            },
+            child: Text("Note1"),
+          ),
+        ),
+        Expanded(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Colors.black87),
+            onPressed: () {
+              Playsound(2);
+            },
+            child: Text("Note2"),
+          ),
+        ),
+        Expanded(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Colors.pink),
+            onPressed: () {Playsound(3);},
+            child: Text("Note3"),
+          ),
+        ),
+        Expanded(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Colors.green),
+            onPressed: () {Playsound(4);},
+            child: Text("Note4"),
+          ),
+        ),
+        Expanded(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Colors.yellow),
+            onPressed: () {Playsound(5);},
+            child: Text("Note5"),
+          ),
+        ),
+        Expanded(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Colors.orange),
+            onPressed: () {Playsound(6);},
+            child: Text("Note6"),
+          ),
+        ),
+        Expanded(
+          child: TextButton(
+            style: TextButton.styleFrom(backgroundColor: Colors.red),
+            onPressed: () {Playsound(7);},
+            child: Text("Note7"),
+          ),
+        )
+      ],
+    );
+  }
+}
