@@ -1,0 +1,73 @@
+package com.example.insha_add;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+    EditText num1,num2;
+    Button btn;
+    TextView res;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        num1= findViewById(R.id.num1);
+        num2 = findViewById(R.id.num2);
+        btn=findViewById(R.id.btn);
+        res=findViewById(R.id.res);
+        btn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View v) {
+                int n1 = Integer.parseInt(num1.getText().toString());
+                int n2 = Integer.parseInt(num2.getText().toString());
+                // add both number and store it to ans
+                int ans = n1 + n2;
+                // set it ot result textview
+                res.setText("result is "+ans);
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        Log.d("lifecycle","OnStart invoked");
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        Log.d("lifecycle","OnStop invoked");
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("lifecycle","OnResume invoked");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("lifecycle","OnDestroy invoked");
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        Log.d("lifecycle","OnPause invoked");
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("lifecycle","OnRestart invoked");
+    }
+}
+
